@@ -1,0 +1,13 @@
+
+
+.table {
+  .customer_img{
+    max-width: 50px;
+  }
+  > :not(caption) > * > *{
+    vertical-align: middle;
+  }
+  th{
+    padding: 0.5rem 0.5rem;
+  }
+}

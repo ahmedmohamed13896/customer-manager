@@ -1,0 +1,56 @@
+
+<div class="container-fluid">
+  <!-- title -->
+  <div class="title py-3 d-flex align-items-center gap-2">
+    <fa-icon class="fs-3" [icon]="faUser"></fa-icon>  <h3 class="m-0">Customers</h3>
+  </div>
+
+
+  <!-- customers tabs -->
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li *ngFor="let tab of tabs" [ngbNavItem]="tab.name">
+      <a ngbNavLink>
+        <fa-icon  [icon]="tab.icon"></fa-icon> <span class="ms-2">{{ tab.name }}</span>
+      </a>
+
+      <ng-template ngbNavContent>
+        <div [ngSwitch]="tab.id">
+          <!-- Grid View -->
+          <div *ngSwitchCase="1">
+              <app-card-view [customers]="customers | filter:fullname"  [paginations]="paginations" ></app-card-view>
+          </div>
+
+
+          <!-- List View -->
+          <div *ngSwitchCase="2">
+            <app-list-view [customers]="customers | filter:fullname"  [paginations]="paginations" ></app-list-view>
+          </div>
+           <!-- Map View -->
+          <div *ngSwitchCase="3">
+            {{tab.name}}
+          </div>
+          <div *ngSwitchCase="4">
+            {{tab.name}}
+          </div>
+        </div>
+      </ng-template>
+    </li>
+    <!-- filter -->
+    <li class="ms-auto me-2 px-3 ">
+      <div class="filter">
+        <label for="filter">
+          Filter:
+        </label>
+        <input type="text" class="form-control" [(ngModel)]="fullname" >
+      </div>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+  <pre>Active: {{ active }}</pre>
+
+</div>
+
+

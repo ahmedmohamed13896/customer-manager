@@ -1,0 +1,23 @@
+.customer_grid{
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  .card_head{
+    background-color: #007af8;
+    color: #FFF;
+    font-size: 1.1rem;
+  }
+  .card_body{
+    color: #333;
+    font-size: 15px;
+    a{
+      color: #007af8;
+    }
+    .customer_img{
+      width: 30%;
+      max-width: 80px;
+    }
+    p{
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.nav-tabs{
+  border-bottom: 0;
+  font-weight: 500;
+  .nav-link{
+    color: #999;
+    border: 0;
+    &.active{
+      color: #000;
+      border: 0;
+    }
+  }
+}
+
+.filter{
+  label{
+    font-weight: 500;
+  }
+}
+
