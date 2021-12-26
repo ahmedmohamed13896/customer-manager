@@ -1,8 +1,8 @@
-
-<div class="container-fluid  flex-grow-1 d-flex flex-column justify-content-start">
+<div class="container  flex-grow-1 d-flex flex-column justify-content-start">
   <!-- title -->
   <div class="title py-3 d-flex align-items-center gap-2">
-    <fa-icon class="fs-3" [icon]="faUser"></fa-icon>  <h3 class="m-0">Customers</h3>
+    <fa-icon class="fs-3" [icon]="faUser"></fa-icon>
+    <h3 class="m-0">Customers</h3>
   </div>
 
 
@@ -10,19 +10,19 @@
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
     <li *ngFor="let tab of tabs; let index=index" [ngbNavItem]="index+1">
       <a ngbNavLink>
-        <fa-icon  [icon]="tab.icon"></fa-icon> <span class="ms-2">{{ tab.name }}</span>
+        <fa-icon [icon]="tab.icon"></fa-icon> <span class="ms-2">{{ tab.name }}</span>
       </a>
       <ng-template ngbNavContent>
         <div [ngSwitch]="tab.id">
           <!-- Grid View -->
           <div *ngSwitchCase="1">
-              <app-card-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname"  [paginations]="paginations" ></app-card-view>
+            <app-card-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-card-view>
           </div>
           <!-- List View -->
           <div *ngSwitchCase="2">
-            <app-list-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname"  [paginations]="paginations" ></app-list-view>
+            <app-list-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-list-view>
           </div>
-           <!-- Map View -->
+          <!-- Map View -->
           <div *ngSwitchCase="3">
             {{tab.name}}
           </div>
@@ -33,12 +33,12 @@
       </ng-template>
     </li>
     <!-- filter -->
-    <li  class="ms-auto me-2 px-3 ">
+    <li class="ms-auto me-2 px-3 ">
       <div class="filter">
         <label for="filter">
           Filter:
         </label>
-        <input type="text" class="form-control" [(ngModel)]="fullname" >
+        <input type="text" class="form-control" [(ngModel)]="fullname">
       </div>
     </li>
 
@@ -49,5 +49,3 @@
   <pre>Active: {{ active }}</pre>
 
 </div>
-
-

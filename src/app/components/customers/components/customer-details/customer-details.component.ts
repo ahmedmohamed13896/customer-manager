@@ -4,11 +4,12 @@ import {   Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-customer-information',
-  templateUrl: './customer-information.component.html',
-  styleUrls: ['./customer-information.component.scss']
+  selector: 'app-customer-details',
+  templateUrl: './customer-details.component.html',
+  styleUrls: ['./customer-details.component.scss']
 })
-export class CustomerInformationComponent implements OnInit  {
+export class CustomerDetailsComponent implements OnInit {
+
   faUser= faUser;
   id='';
   customerInfo: any;
@@ -25,24 +26,13 @@ export class CustomerInformationComponent implements OnInit  {
   constructor(private api:ApiService,private route:ActivatedRoute) {
 
    }
-
   ngOnInit(): void {
     this.route.params.subscribe(param=>{
       this.id= param.id;
     })
     this.api.getCustomerInfo(this.id).subscribe((info)=>{
       this.customerInfo = info;
-      this.totalOrdersPrice = this.getTotalPrice();
     })
-  }
-
-  getTotalPrice(){
-    let totalPrice=0;
-    for(let order of this.customerInfo.orders){
-      totalPrice += order.price;
-    }
-    totalPrice = +totalPrice.toFixed(2);
-    return totalPrice;
   }
 
 }

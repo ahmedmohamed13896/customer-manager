@@ -4,12 +4,12 @@ import {   Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-customer-information',
-  templateUrl: './customer-information.component.html',
-  styleUrls: ['./customer-information.component.scss']
+  selector: 'app-customer-orders',
+  templateUrl: './customer-orders.component.html',
+  styleUrls: ['./customer-orders.component.scss']
 })
-export class CustomerInformationComponent implements OnInit  {
-  faUser= faUser;
+export class CustomerOrdersComponent implements OnInit {
+faUser= faUser;
   id='';
   customerInfo: any;
   totalOrdersPrice:number = 0;
@@ -44,5 +44,4 @@ export class CustomerInformationComponent implements OnInit  {
     totalPrice = +totalPrice.toFixed(2);
     return totalPrice;
   }
-
 }

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,9 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CardViewComponent } from './components/customers/components/card-view/card-view.component';
 import { CustomerInformationComponent } from './components/customers/components/customer-information/customer-information.component';
 import { ListViewComponent } from './components/customers/components/list-view/list-view.component';
+import { CustomerDetailsComponent } from './components/customers/components/customer-details/customer-details.component';
+import { CustomerOrdersComponent } from './components/customers/components/customer-orders/customer-orders.component';
+import { EditCustomerComponent } from './components/customers/components/edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,10 @@ import { ListViewComponent } from './components/customers/components/list-view/l
     CardViewComponent,
     ListViewComponent,
     FilterPipe,
-    CustomerInformationComponent
+    CustomerInformationComponent,
+    CustomerDetailsComponent,
+    CustomerOrdersComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ import { ListViewComponent } from './components/customers/components/list-view/l
     NgbNavModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
