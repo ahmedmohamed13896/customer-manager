@@ -1,4 +1,4 @@
-<div class="responsive-table">
+<div class="responsive-table table_row"  *ngIf="customers?.length">
   <table class="table table-striped">
     <thead>
       <th></th>
@@ -25,8 +25,13 @@
       </tr>
     </tbody>
   </table>
-  <ngb-pagination
-  [(page)]="paginations.table.page"
-  [pageSize]="paginations.table.pageSize"
-  [collectionSize]="customers.length"></ngb-pagination>
 </div>
+<div *ngIf="!customers?.length && customersIsLoaded" class="not_found mx-auto w-50">
+  <h3>
+    There is no customer with this name
+  </h3>
+</div>
+<ngb-pagination *ngIf="customers?.length && customersIsLoaded"
+[(page)]="paginations.table.page"
+[pageSize]="paginations.table.pageSize"
+[collectionSize]="customers.length"></ngb-pagination>

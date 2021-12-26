@@ -4,9 +4,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerInformationComponent } from './components/customers/customer-information/customer-information.component';
-
-
+import { CustomerInformationComponent } from './components/customers/components/customer-information/customer-information.component';
 const routes: Routes = [
   {path:'' , pathMatch: 'full', redirectTo: 'customers'},
   {path:'customers' , component: CustomersComponent},

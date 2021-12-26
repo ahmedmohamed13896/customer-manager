@@ -1,5 +1,5 @@
-import { ApiService } from './../../../services/api.service';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { ApiService } from './../../../../services/api.service';
+import { faList, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -13,6 +13,14 @@ export class CustomerInformationComponent implements OnInit {
   id='';
   customerInfo: any;
 
+  // Customer Info tabs
+  tabs = [
+    {id:1, name :"Customer Details",icon: faList},
+    {id:2,name :"List View",icon:  faList},
+    {id:3,name :"Map view",icon: faList},
+  ];
+  counter:number = this.tabs.length + 1;
+  active !:string;
 
   constructor(private api:ApiService,private route:ActivatedRoute) { }
 

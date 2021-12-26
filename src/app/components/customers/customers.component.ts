@@ -27,7 +27,7 @@ export class CustomersComponent implements OnInit {
   // customers Data
   customers: any[]= [];
   fullname:string = '';
-
+  customersIsLoaded = false;
   // pagination
   paginations = {
     cards:{
@@ -49,6 +49,9 @@ export class CustomersComponent implements OnInit {
     },
     error =>{
       console.log(error);
+    },
+    ()=>{
+     this.customersIsLoaded = true;
     });
   }
 

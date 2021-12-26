@@ -10,9 +10,15 @@ export class ListViewComponent implements OnInit {
   @Input() customers !: any[];
   @Input() paginations : any;
   totalOrder :number= 0;
+  @Input() customersIsLoaded;
 
-
-  constructor() { }
+  constructor() {
+    console.log(this.customersIsLoaded);
+    if(this.customers?.length > 0){
+      this.customersIsLoaded = true;
+      console.log(this.customersIsLoaded);
+    }
+  }
 
   ngOnInit(): void {
   }

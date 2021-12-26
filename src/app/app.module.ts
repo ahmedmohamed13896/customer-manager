@@ -10,11 +10,12 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbNavModule, NgbPaginationModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { CardViewComponent } from './components/customers/card-view/card-view.component';
-import { ListViewComponent } from './components/customers/list-view/list-view.component';
+
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
-import { CustomerInformationComponent } from './components/customers/customer-information/customer-information.component';
+import { CardViewComponent } from './components/customers/components/card-view/card-view.component';
+import { CustomerInformationComponent } from './components/customers/components/customer-information/customer-information.component';
+import { ListViewComponent } from './components/customers/components/list-view/list-view.component';
 
 @NgModule({
   declarations: [
