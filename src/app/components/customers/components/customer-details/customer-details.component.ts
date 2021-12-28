@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CustomerDetailsComponent implements OnInit {
 
   faUser= faUser;
-  id='';
+  id!:number;
   customerInfo: any;
   totalOrdersPrice:number = 0;
   // Customer Info tabs

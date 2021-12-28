@@ -13,8 +13,8 @@ export class ApiService {
     return this.http.get('http://localhost:3000/customers');
   }
 
-  updateCustomers(customerData:any,id:number){
-    this.http.put('http://localhost:3000/customers'+id ,customerData);
+  updateCustomers(id:number,customerData:any){
+    return this.http.put('http://localhost:3000/customers/'+id ,customerData);
   }
 
   addCustomers(customerData:any){
@@ -22,13 +22,11 @@ export class ApiService {
   }
 
   deleteCustomers(id:number){
-    this.http.delete('http://localhost:3000/customers'+id).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.delete('http://localhost:3000/customers/'+id);
   }
 
 
-  getCustomerInfo(id:string){
+  getCustomerInfo(id:number){
     return this.http.get('http://localhost:3000/customers/'+id);
   }
 
