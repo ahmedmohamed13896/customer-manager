@@ -13,7 +13,6 @@ export class CardViewComponent implements OnInit {
   @Input() customersIsLoaded;
 
   constructor() {
-    console.log(this.customersIsLoaded);
     if(this.customers?.length > 0){
       this.customersIsLoaded = true;
       console.log(this.customersIsLoaded);

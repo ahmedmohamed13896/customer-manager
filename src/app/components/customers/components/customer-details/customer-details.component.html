@@ -1,14 +1,12 @@
 <!-- Customer info -->
-<div class="row pt-4 mb-3">
-  <div class="col-md-3">
-    <div class="customer_img">
-      <img class="img-fluid" src="./assets/Male_User_Icon_clip_art.svg" alt="">
-    </div>
+<div class="d-flex flex-sm-row flex-column pt-4 mb-3">
+  <div class="customer_img">
+    <img class="img-fluid" [src]="'https://source.unsplash.com/random/200x200?sig='+ customerInfo?.id" alt="">
   </div>
-  <div class="col-md-9">
-    <h3 class="h6 pt-2 mb-4">
+  <div class="ms-sm-5">
+    <h2 class="pt-2 mb-4">
       {{customerInfo?.first_name}} {{customerInfo?.last_name}}
-    </h3>
+    </h2>
     <p class="mb-0">
       {{customerInfo?.address}} <br>
       {{customerInfo?.city}}

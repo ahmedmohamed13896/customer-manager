@@ -45,7 +45,6 @@ export class CustomersComponent implements OnInit {
   ngOnInit(): void {
     this.api.getCustomers().subscribe((data:any)=>{
       this.customers = data;
-      console.log(this.customers);
     },
     error =>{
       console.log(error);

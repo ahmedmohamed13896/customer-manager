@@ -38,10 +38,13 @@ faUser= faUser;
 
   getTotalPrice(){
     let totalPrice=0;
-    for(let order of this.customerInfo.orders){
-      totalPrice += order.price;
+    if(this.customerInfo?.orders?.length){
+      for(let order of this.customerInfo?.orders){
+        totalPrice += order.price;
+      }
+      totalPrice = +totalPrice.toFixed(2);
+      return totalPrice;
     }
-    totalPrice = +totalPrice.toFixed(2);
-    return totalPrice;
+    return 0;
   }
 }

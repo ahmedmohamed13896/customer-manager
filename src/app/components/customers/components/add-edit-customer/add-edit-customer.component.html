@@ -1,0 +1,57 @@
+<form autocomplete="chrome-off" [formGroup]="editForm" class="edit_form">
+  <div class="form-group mb-3">
+    <label for="first_name" class="form-label">First Name</label>
+    <input autocomplete="chrome-off" type="text" class="form-control border_left_green" [class.error]="!first_name?.valid && first_name?.touched" id="first_name" name="first_name" formControlName="first_name">
+    <div class="invalid-feedback" *ngIf="!first_name?.valid && first_name?.touched ">
+      <span *ngIf="first_name?.errors?.required">Required. </span>
+      <span *ngIf="first_name?.errors?.pattern">Please use only letters a-zA-Z. </span>
+      <span *ngIf="first_name?.errors?.minlength">At least 3 letters. </span>
+      <span *ngIf="first_name?.errors?.maxlength">max length 10 letters. </span>
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="last_name" class="form-label">Last Name</label>
+    <input autocomplete="chrome-off" type="text" class="form-control border_left_green" [class.error]="!last_name?.valid && last_name?.touched" id="last_name" name="last_name" formControlName="last_name">
+    <div class="invalid-feedback" *ngIf="!last_name?.valid && last_name?.touched">
+      <span *ngIf="last_name?.errors?.required">Required. </span>
+      <span *ngIf="last_name?.errors?.pattern">Please use only letters a-zA-Z. </span>
+      <span *ngIf="last_name?.errors?.minlength">At least 3 letters. </span>
+      <span *ngIf="last_name?.errors?.maxlength">max length 10 letters. </span>
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="address" class="form-label">Address</label>
+    <input autocomplete="chrome-off" type="text" class="form-control border_left_green" [class.error]="!address?.valid && address?.touched" id="address" name="address" formControlName="address">
+    <div class="invalid-feedback" *ngIf="!address?.valid && address?.touched">
+      Required
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="city" class="form-label">City</label>
+    <input autocomplete="chrome-off" type="text" class="form-control border_left_green" [class.error]="!city?.valid && city?.touched" id="city" name="city" formControlName="city">
+    <div class="invalid-feedback" *ngIf="!city?.valid && city?.touched">
+      Required
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="state" class="form-label">State</label>
+    <input autocomplete="chrome-off" type="text" class="form-control border_left_green" [class.error]="!state?.valid && state?.touched" id="state" name="state" formControlName="state">
+    <div class="invalid-feedback" *ngIf="!state?.valid && state?.touched">
+      Required
+    </div>
+  </div>
+
+  <div class="form-group mb-3 form_actions d-flex justify-content-between">
+    <button type="button" class="btn btn-danger me-2"  mat-button *ngIf="formType == 'edit'" (click)="openDialog('Delete',{message:'Delete'})" >Delete</button>
+    <div class="d-flex justify-content-between ms-auto" >
+      <button type="button" class="btn me-2 btn-light btn_cancel"  (click)="nav.select(1)">Cancle</button>
+      <button type="button" class="btn btn-success btn_update" *ngIf="formType == 'edit'"   mat-button (click)="openDialog('Update',{message:'Update'})"  [disabled]="!editForm.valid">Update</button>
+      <button type="button" class="btn btn-primary btn_update" *ngIf="formType == 'add'"   mat-button (click)="openDialog('Add',{message:'Add'})"  [disabled]="!editForm.valid">Add</button>
+    </div>
+  </div>
+
+</form>

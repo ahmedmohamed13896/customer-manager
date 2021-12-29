@@ -22,7 +22,9 @@ import { CustomerInformationComponent } from './components/customers/components/
 import { ListViewComponent } from './components/customers/components/list-view/list-view.component';
 import { CustomerDetailsComponent } from './components/customers/components/customer-details/customer-details.component';
 import { CustomerOrdersComponent } from './components/customers/components/customer-orders/customer-orders.component';
-import { EditCustomerComponent } from './components/customers/components/edit-customer/edit-customer.component';
+import { ConfirmationPopupComponent } from './shared/confirmation-popup/confirmation-popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddEditCustomerComponent } from './components/customers/components/add-edit-customer/add-edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { EditCustomerComponent } from './components/customers/components/edit-cu
     CustomerInformationComponent,
     CustomerDetailsComponent,
     CustomerOrdersComponent,
-    EditCustomerComponent
+    AddEditCustomerComponent,
+    ConfirmationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { EditCustomerComponent } from './components/customers/components/edit-cu
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

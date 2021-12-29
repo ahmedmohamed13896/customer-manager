@@ -11,9 +11,9 @@
       <th></th>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize">
+      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize;">
         <td>
-          <div class="customer_img"> <img src="./assets/Male_User_Icon_clip_art.svg" alt="" class="img-fluid"> </div>
+          <div class="customer_img"> <img  [src]="'https://source.unsplash.com/random/200x200?sig='+ customer.id" alt="" class="img-fluid"> </div>
         </td>
         <td>{{customer.first_name}}</td>
         <td>{{customer.last_name}} </td>

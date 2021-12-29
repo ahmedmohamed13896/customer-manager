@@ -18,7 +18,7 @@ export class ApiService {
   }
 
   addCustomers(customerData:any){
-    this.http.post('http://localhost:3000/customers',customerData);
+    return this.http.post('http://localhost:3000/customers',customerData);
   }
 
   deleteCustomers(id:number){

@@ -2,7 +2,7 @@
   <!-- title -->
   <div class="title py-3 d-flex align-items-center gap-2">
     <fa-icon class="fs-4" [icon]="faUser"></fa-icon>
-    <h3 class="m-0 h4">Customer Information</h3>
+    <h2 class="m-0 ">Customer Information</h2>
   </div>
 
   <!-- customers tabs -->
@@ -23,7 +23,7 @@
           </div>
           <!-- Edit Customer -->
           <div *ngSwitchCase="3">
-            <app-edit-customer ></app-edit-customer>
+            <app-add-edit-customer [formType]="'edit'" [nav]="nav"></app-add-edit-customer>
           </div>
 
         </div>
