@@ -1,0 +1,52 @@
+<div class="container  flex-grow-1 d-flex flex-column justify-content-start">
+  <!-- title -->
+  <div class="title py-3 d-flex align-items-center gap-2">
+    <fa-icon class="fs-3" [icon]="faUser"></fa-icon>
+    <h2 class="m-0">Customers</h2>
+  </div>
+
+
+  <!-- customers tabs -->
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mb-3">
+    <li *ngFor="let tab of tabs; let index=index" [ngbNavItem]="index+1">
+      <a ngbNavLink>
+        <fa-icon [icon]="tab.icon"></fa-icon> <span class="ms-2">{{ tab.name }}</span>
+      </a>
+      <ng-template ngbNavContent>
+        <div [ngSwitch]="tab.id">
+          <!-- Grid View -->
+          <div *ngSwitchCase="1">
+            <app-card-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-card-view>
+          </div>
+          <!-- List View -->
+          <div *ngSwitchCase="2">
+            <app-list-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-list-view>
+          </div>
+          <!-- Map View -->
+          <div *ngSwitchCase="3">
+            {{tab.name}}
+          </div>
+          <div *ngSwitchCase="4">
+            <h2>Add New Customer</h2>
+            <app-add-edit-customer [formType]="'add'"  [nav]="nav"></app-add-edit-customer>
+          </div>
+        </div>
+      </ng-template>
+    </li>
+    <!-- filter -->
+    <li class="ms-auto me-2 px-3" *ngIf="active != '4'">
+      <div class="filter">
+        <label for="filter">
+          Filter:
+        </label>
+        <input type="text" class="form-control" [(ngModel)]="fullname">
+      </div>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2 d-flex flex-column justify-content-start"></div>
+
+  <!-- <pre>Active: {{ active }}</pre> -->
+
+</div>

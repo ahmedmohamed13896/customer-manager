@@ -1,0 +1,44 @@
+<div class="container pb-5">
+  <!-- title -->
+  <div class="title py-3 d-flex align-items-center gap-2">
+    <fa-icon class="fs-4" [icon]="faUser"></fa-icon>
+    <h2 class="m-0 ">Customer Information</h2>
+  </div>
+
+  <!-- customers tabs -->
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li *ngFor="let tab of tabs; let index=index" [ngbNavItem]="index+1">
+      <a ngbNavLink>
+        <fa-icon [icon]="tab.icon"></fa-icon> <span class="ms-2">{{ tab.name }}</span>
+      </a>
+      <ng-template ngbNavContent>
+        <div [ngSwitch]="tab.id">
+          <!-- Customer Details -->
+          <div *ngSwitchCase="1">
+            <app-customer-details></app-customer-details>
+          </div>
+          <!-- Customer Orders -->
+          <div *ngSwitchCase="2">
+            <app-customer-orders></app-customer-orders>
+          </div>
+          <!-- Edit Customer -->
+          <div *ngSwitchCase="3">
+            <app-add-edit-customer [formType]="'edit'" [nav]="nav"></app-add-edit-customer>
+          </div>
+
+        </div>
+      </ng-template>
+    </li>
+
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2 d-flex flex-column justify-content-start py-2"></div>
+  <a [routerLink]="['/customers']">View All Customers</a>
+  <!-- <pre>Active: {{ active }}</pre>
+
+
+  <div>
+    {{customerInfo | json}}
+  </div> -->
+</div>

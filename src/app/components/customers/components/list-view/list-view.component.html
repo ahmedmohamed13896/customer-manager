@@ -1,0 +1,37 @@
+<div class="responsive-table table_row"  *ngIf="customers?.length">
+  <table class="table table-striped">
+    <thead>
+      <th></th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Order Total</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize;">
+        <td>
+          <div class="customer_img"> <img  [src]="'https://source.unsplash.com/random/200x200?sig='+ customer.id" alt="" class="img-fluid"> </div>
+        </td>
+        <td>{{customer.first_name}}</td>
+        <td>{{customer.last_name}} </td>
+        <td>{{customer.address}}</td>
+        <td>{{customer.city}}</td>
+        <td>{{customer.state}}</td>
+        <td>${{totalOrder.toLocaleString('en-US')}}</td>
+        <td><a routerLink="/customers/{{customer.id}}">View Orders</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!customers?.length && customersIsLoaded" class="not_found mx-auto w-50">
+  <h3>
+    There is no customer with this name
+  </h3>
+</div>
+<ngb-pagination *ngIf="customers?.length && customersIsLoaded"
+[(page)]="paginations.table.page"
+[pageSize]="paginations.table.pageSize"
+[collectionSize]="customers.length"></ngb-pagination>

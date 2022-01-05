@@ -1,0 +1,25 @@
+
+
+.table {
+  min-width: 680px;
+  .customer_img{
+    max-width: 50px;
+  }
+  > :not(caption) > * > *{
+    vertical-align: middle;
+  }
+  th{
+    padding: 0.5rem 0.5rem;
+  }
+}
+.not_found{
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table_row{
+  min-height: 320px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}

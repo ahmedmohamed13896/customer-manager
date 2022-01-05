@@ -1,0 +1,26 @@
+.nav-tabs{
+  border-bottom: 0;
+  font-weight: 500;
+  .nav-link{
+    color: #999;
+    border: 0;
+    &.active{
+      color: #000;
+      border: 0;
+
+    }
+  }
+}
+
+.filter{
+  label{
+    font-weight: 500;
+  }
+}
+
+::ng-deep .tab-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}

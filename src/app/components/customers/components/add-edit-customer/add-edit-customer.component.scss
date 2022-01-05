@@ -1,0 +1,17 @@
+
+.edit_form{
+  width: 100%;
+  max-width: 650px;
+  .btn{
+    min-width: 75px;
+  }
+  .border_left_green{
+    border-left: 5px solid green ;
+    &.error{
+      border-left: 5px solid red ;
+    }
+  }
+  .btn_cancel{
+    border: 1px solid #CCC;
+  }
+}
