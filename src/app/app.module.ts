@@ -25,6 +25,7 @@ import { CustomerOrdersComponent } from './components/customers/components/custo
 import { ConfirmationPopupComponent } from './shared/confirmation-popup/confirmation-popup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddEditCustomerComponent } from './components/customers/components/add-edit-customer/add-edit-customer.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AddEditCustomerComponent } from './components/customers/components/add-
     CustomerOrdersComponent,
     AddEditCustomerComponent,
     ConfirmationPopupComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
