@@ -7,17 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginPattern='(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}';
+  passwordPattern='(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}';
 
   constructor(private fb:FormBuilder) { }
 
   loginForm = this.fb.group({
     email: ['',[Validators.email,Validators.required]],
-    password:['',[Validators.required,Validators.pattern(this.loginPattern),Validators.minLength(8)]]
+    password:['',[Validators.required,Validators.pattern(this.passwordPattern),Validators.minLength(8)]]
   })
 
   ngOnInit(): void {
   }
+
 
   get email(){
     return this.loginForm.get('email')
