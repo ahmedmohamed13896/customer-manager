@@ -16,11 +16,11 @@
         <div [ngSwitch]="tab.id">
           <!-- Grid View -->
           <div *ngSwitchCase="1">
-            <app-card-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-card-view>
+            <app-card-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations"></app-card-view>
           </div>
           <!-- List View -->
           <div *ngSwitchCase="2">
-            <app-list-view [customersIsLoaded]="customersIsLoaded" [customers]="customers | filter:fullname" [paginations]="paginations"></app-list-view>
+            <app-list-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations"></app-list-view>
           </div>
           <!-- Map View -->
           <div *ngSwitchCase="3">
@@ -28,7 +28,7 @@
           </div>
           <div *ngSwitchCase="4">
             <h2>Add New Customer</h2>
-            <app-add-edit-customer [formType]="'add'"  [nav]="nav"></app-add-edit-customer>
+            <app-add-edit-customer [formType]="'add'" [nav]="nav"></app-add-edit-customer>
           </div>
         </div>
       </ng-template>

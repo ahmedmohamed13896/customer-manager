@@ -10,24 +10,24 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getCustomers(){
-    return this.http.get('https://my-json-server.typicode.com/ahmedmohamed13896/fake_api/customers');
+    return this.http.get('http://localhost:3000/customers');
   }
 
   updateCustomers(id:number,customerData:any){
-    return this.http.put('https://my-json-server.typicode.com/ahmedmohamed13896/fake_api/customers/'+id ,customerData);
+    return this.http.put('http://localhost:3000/customers/'+id ,customerData);
   }
 
   addCustomers(customerData:any){
-    return this.http.post('https://my-json-server.typicode.com/ahmedmohamed13896/fake_api/customers',customerData);
+    return this.http.post('http://localhost:3000/customers',customerData);
   }
 
   deleteCustomers(id:number){
-    return this.http.delete('https://my-json-server.typicode.com/ahmedmohamed13896/fake_api/customers/'+id);
+    return this.http.delete('http://localhost:3000/customers/'+id);
   }
 
 
   getCustomerInfo(id:number){
-    return this.http.get('https://my-json-server.typicode.com/ahmedmohamed13896/fake_api/customers/'+id);
+    return this.http.get('http://localhost:3000/customers/'+id);
   }
 
 

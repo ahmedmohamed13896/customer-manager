@@ -2,6 +2,7 @@ import { ApiService } from './../../../../services/api.service';
 import { faList, faUser } from '@fortawesome/free-solid-svg-icons';
 import {   Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {  Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-information',
@@ -22,15 +23,17 @@ export class CustomerInformationComponent implements OnInit  {
   counter:number = this.tabs.length + 1;
   active !:string;
 
-  constructor(private api:ApiService,private route:ActivatedRoute) {
+  routeSub!: Subscription
+  customerSub!: Subscription
 
-   }
+
+  constructor(private api:ApiService,private route:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(param=>{
+    this.routeSub = this.route.params.subscribe(param=>{
       this.id= param.id;
     })
-    this.api.getCustomerInfo(this.id).subscribe((info)=>{
+   this.customerSub = this.api.getCustomerInfo(this.id).subscribe((info)=>{
       this.customerInfo = info;
       this.totalOrdersPrice = this.getTotalPrice();
     })
@@ -46,6 +49,13 @@ export class CustomerInformationComponent implements OnInit  {
       return totalPrice;
     }
     return 0;
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.routeSub.unsubscribe();
+    this.customerSub.unsubscribe();
   }
 
 

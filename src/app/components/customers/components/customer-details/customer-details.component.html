@@ -1,7 +1,7 @@
 <!-- Customer info -->
 <div class="d-flex flex-sm-row flex-column pt-4 mb-3">
   <div class="customer_img">
-    <img class="img-fluid" [src]="'https://source.unsplash.com/random/200x200?sig='+ customerInfo?.id" alt="">
+    <img class="img-fluid" *ngIf="customerInfo?.id !== null && customerInfo?.id !== undefined" [src]="'https://picsum.photos/200/200?'+ customerInfo?.id" alt="">
   </div>
   <div class="ms-sm-5">
     <h2 class="pt-2 mb-4">

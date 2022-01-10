@@ -1,0 +1,234 @@
+{
+  "customers": [
+    {
+      "id": 5,
+      "first_name": "omar",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "first_name": "abdo",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "first_name": "mai",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "first_name": "hager",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "first_name": "sara",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "first_name": "yasser",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "first_name": "samy",
+      "last_name": "salah",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "first_name": "amr",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "first_name": "Ahmed",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "first_name": "salem",
+      "last_name": "amir",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "first_name": "reda",
+      "last_name": "Mohamed",
+      "address": "Gharbia-El-Mahalla",
+      "city": "El-Mahalla",
+      "state": "Egypt",
+      "orders": [
+        {
+          "name": "Basketball",
+          "price": 199.99
+        },
+        {
+          "name": "Shoes",
+          "price": 7.99
+        }
+      ]
+    },
+    {
+      "first_name": "dsdshj",
+      "last_name": "hgvfc",
+      "address": "jjhvyuvhj",
+      "city": "gchcghcg",
+      "state": "uvyuvyu",
+      "id": 16
+    },
+    {
+      "first_name": "ahmed",
+      "last_name": "ahmed",
+      "address": "Alex",
+      "city": "alex",
+      "state": "egypt",
+      "id": 17
+    },
+    {
+      "first_name": "mohamed",
+      "last_name": "ramadan",
+      "address": "djbd dcbkjs ",
+      "city": "dkvslndsk ",
+      "state": "egypt",
+      "id": 18
+    },
+    {
+      "first_name": "moahmed",
+      "last_name": "omar",
+      "address": "Gharbia-tanta",
+      "city": "tanta",
+      "state": "Egypt",
+      "id": 19
+    }
+  ]
+}

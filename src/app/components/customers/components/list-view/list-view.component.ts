@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from './../../../../services/api.service';
 
 @Component({
   selector: 'app-list-view',
@@ -7,20 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListViewComponent implements OnInit {
 
-  @Input() customers !: any[];
+  customers !: any[];
   @Input() paginations : any;
   totalOrder :number= 0;
   @Input() customersIsLoaded;
 
-  constructor() {
+  constructor(private api:ApiService) {
     console.log(this.customersIsLoaded);
     if(this.customers?.length > 0){
       this.customersIsLoaded = true;
-      console.log(this.customersIsLoaded);
     }
   }
 
   ngOnInit(): void {
+    this.api.getCustomers().subscribe((data:any)=>{
+      this.customers = data;
+      this.customersIsLoaded = true;
+      console.log(this.customersIsLoaded);
+    })
   }
 
 }
