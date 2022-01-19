@@ -3,22 +3,23 @@ import { ApiService } from './../../../../../services/api.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: '.app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class CardComponent implements OnInit {
+export class ListComponent implements OnInit {
+
+ constructor(private api:ApiService) { }
   counter!:number;
   isChecked:boolean =false;
   faEdit= faEdit;
   @Input() customer!:any;
-
-  constructor(private api:ApiService) { }
+  totalOrder :number= 0;
 
   ngOnInit(): void {
   }
 
-  changeCounter(event:Event){
+   changeCounter(event:Event){
     if((event.target as HTMLInputElement).checked){
       this.customer.isChecked =true;
       this.counter = this.api.getCustomerCounter();
@@ -29,6 +30,4 @@ export class CardComponent implements OnInit {
       this.api.setCustomerCounter().next(this.counter-1)
     }
   }
-
-
 }

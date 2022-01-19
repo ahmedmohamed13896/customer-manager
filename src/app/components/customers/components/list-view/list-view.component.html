@@ -17,25 +17,11 @@
       <th></th>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize | filter:fullname;">
-        <td>
-          <div class="d-flex align-items-center px-2">
-            <div class="form-check  m-0 ">
-              <input class="form-check-input" type="checkbox" value="">
-            </div>
-            <div class="customer_img d-flex align-items-center">
-              <img [src]="'https://picsum.photos/200/200?'+ customer.id" alt="" class="img-fluid">
-            </div>
-          </div>
-        </td>
-        <td>{{customer.first_name}}</td>
-        <td>{{customer.last_name}} </td>
-        <td>{{customer.address}}</td>
-        <td>{{customer.city}}</td>
-        <td>{{customer.state}}</td>
-        <td>${{totalOrder.toLocaleString('en-US')}}</td>
-        <td><a routerLink="/customers/{{customer.id}}">View Orders</a></td>
-      </tr>
+      <ng-container *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize | filter:fullname;">
+        <tr class="app-list" [customer]="customer">
+        </tr>
+      </ng-container>
+
     </tbody>
   </table>
 </div>

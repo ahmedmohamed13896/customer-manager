@@ -1,6 +1,6 @@
 <div class="card_row" *ngIf="customers?.length">
   <div class="row align-items-stretch">
-    <ng-container *ngFor="let customer of customers | slice: (paginations.cards.page-1) * paginations.cards.pageSize : paginations.cards.page * paginations.cards.pageSize | filter:fullname; let index=index; ">
+    <ng-container *ngFor="let customer of customers | filter:fullname | slice: (paginations.cards.page-1) * paginations.cards.pageSize : paginations.cards.page * paginations.cards.pageSize ; let index=index; ">
       <div class="col-lg-3 col-md-4 col-sm-6 d-flex flex-column align-items-stretch" >
         <app-card [customer]="customer"></app-card>
       </div>
@@ -15,4 +15,4 @@
   </h3>
 </div>
 
-<ngb-pagination class="mt-auto" *ngIf="customers?.length && customersIsLoaded" [(page)]="paginations.cards.page" [pageSize]="paginations.cards.pageSize" [collectionSize]="customers.length"></ngb-pagination>
+<ngb-pagination class="mt-auto" *ngIf="customers?.length && customersIsLoaded" [(page)]="paginations.cards.page" [pageSize]="paginations.cards.pageSize" [collectionSize]="(customers | filter: fullname).length"></ngb-pagination>

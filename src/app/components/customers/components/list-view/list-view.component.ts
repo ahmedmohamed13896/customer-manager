@@ -10,7 +10,6 @@ export class ListViewComponent implements OnInit {
 
   customers !: any[];
   @Input() paginations : any;
-  totalOrder :number= 0;
   @Input() customersIsLoaded;
   @Input() fullname:string ='';
 
@@ -26,7 +25,10 @@ export class ListViewComponent implements OnInit {
       this.customers = data;
       this.customersIsLoaded = true;
       console.log(this.customersIsLoaded);
-    })
+    });
+    this.api.customerCounter.next(0);
   }
+
+
 
 }

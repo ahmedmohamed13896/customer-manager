@@ -6,7 +6,7 @@ import { ApiService } from './../../../../services/api.service';
   templateUrl: './card-view.component.html',
   styleUrls: ['./card-view.component.scss']
 })
-export class CardViewComponent implements OnInit {
+export class CardViewComponent implements OnInit  {
   customers !: any[];
   @Input() paginations : any;
   @Input() customersIsLoaded;
@@ -19,11 +19,13 @@ export class CardViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.api.getCustomers().subscribe((data:any)=>{
       this.customers = data;
       this.customersIsLoaded = true;
-      console.log(this.customersIsLoaded);
+
     });
+    this.api.customerCounter.next(0);
   }
 
 
