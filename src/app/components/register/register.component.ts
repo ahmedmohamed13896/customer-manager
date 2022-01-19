@@ -1,5 +1,8 @@
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../services/api.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,7 @@ export class RegisterComponent implements OnInit {
   passwordPattern='(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}';
   namePattern="^([a-zA-Z]{3,})?";
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder,private api:ApiService,private toastr: ToastrService,private router:Router) { }
 
   registerForm = this.fb.group({
     fName: ['',[Validators.pattern(this.namePattern),Validators.required]],
@@ -33,6 +36,24 @@ export class RegisterComponent implements OnInit {
   }
   get password(){
     return this.registerForm.get('password')
+  }
+
+  showSuccess(message:string) {
+    this.toastr.success( message);
+  }
+
+  register(userData:any){
+    this.api.addUser(userData).subscribe((data)=>{
+      console.log(data);
+
+    },
+    error=>{
+      console.log(error);
+    },()=>{
+      // show toaster
+      this.showSuccess('User Registered Successfully');
+      this.router.navigate(['/login']);
+    })
   }
 
 }

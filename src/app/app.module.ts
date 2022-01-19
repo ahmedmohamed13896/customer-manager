@@ -27,6 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AddEditCustomerComponent } from './components/customers/components/add-edit-customer/add-edit-customer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CardComponent } from './components/customers/components/card-view/card/card.component';
+import { ListComponent } from './components/customers/components/list-view/list/list.component';
+import { MapViewComponent } from './components/customers/components/map-view/map-view.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { CardComponent } from './components/customers/components/card-view/card/
     ConfirmationPopupComponent,
     RegisterComponent,
     CardComponent,
+    ListComponent,
+    MapViewComponent,
   ],
   imports: [
     BrowserModule,

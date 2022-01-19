@@ -163,24 +163,6 @@
       ]
     },
     {
-      "id": 14,
-      "first_name": "salem",
-      "last_name": "amir",
-      "address": "Gharbia-El-Mahalla",
-      "city": "El-Mahalla",
-      "state": "Egypt",
-      "orders": [
-        {
-          "name": "Basketball",
-          "price": 199.99
-        },
-        {
-          "name": "Shoes",
-          "price": 7.99
-        }
-      ]
-    },
-    {
       "id": 15,
       "first_name": "reda",
       "last_name": "Mohamed",
@@ -229,6 +211,37 @@
       "city": "tanta",
       "state": "Egypt",
       "id": 19
+    },
+    {
+      "first_name": "mohamed",
+      "last_name": "hegazy",
+      "address": "Beheira",
+      "city": "Beheira",
+      "state": "Egypt",
+      "id": 20
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fName": "admin",
+      "lName": "admin",
+      "email": "admin@admin.com",
+      "password": "Aa123456"
+    },
+    {
+      "id": 2,
+      "fName": "ahmed",
+      "lName": "mohamed",
+      "email": "ahmed@mohamed.com",
+      "password": "Aa123456"
+    },
+    {
+      "fName": "khaled",
+      "lName": "anwer",
+      "email": "khaled@anwer.com",
+      "password": "Aa123456",
+      "id": 3
     }
   ]
 }

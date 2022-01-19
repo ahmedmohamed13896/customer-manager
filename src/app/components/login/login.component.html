@@ -1,5 +1,5 @@
 <div class="container">
-  <form class="py-2 login_form" [formGroup]="loginForm">
+  <form class="py-2 login_form" [formGroup]="loginForm" (submit)="login(loginForm?.value)">
     <h2 class="text-start mb-4">
       Login Form
     </h2>
@@ -17,10 +17,16 @@
       <div class="invalid-feedback" *ngIf="!password?.valid && password?.touched">
         <span *ngIf="password?.errors?.required">Required.</span>
         <span class="d-block" *ngIf="password?.errors?.minlength">Please use at least 8 letters and characters. </span>
-        <span *ngIf="password?.errors?.pattern">at least 1 uppercase, 1 lowercase, 1 special character and 1 numbers. </span>
+        <span *ngIf="password?.errors?.pattern">at least 1 uppercase, 1 lowercase and 1 number. </span>
       </div>
     </div>
 
     <button type="submit" class="btn btn-primary fw-bold px-5" [disabled]="loginForm.invalid">Login</button>
+    <div class="invalid-feedback" *ngIf="userNotFound">
+      <span >Email or Password is Incorrect.</span>
+    </div>
+    <div class="d-flex justify-content-end gap-2 mt-3">
+      <span>Don't have an account?</span> <a class="link" routerLink="/register" routerLinkActive="active">Register</a>
+    </div>
   </form>
 </div>

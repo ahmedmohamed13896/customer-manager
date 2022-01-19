@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-md navbar-light ">
   <div class="container">
     <a class="navbar-brand" routerLink="/"><img class="img-fluid brand_img" [src]="brandUrl" alt="customers"> Customer Manager</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,20 +6,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav w-100">
-        <li class="nav-item">
+        <li class="nav-item mt-2"  *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/customers" routerLinkActive="active">Customers</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mt-2"  *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/orders" routerLinkActive="active">Orders</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mt-2"  *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
         </li>
-        <li class="nav-item ms-auto">
+        <li class="nav-item mt-2 ms-md-auto"  *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item mt-2 "  *ngIf="!isLoggedIn">
           <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li class="nav-item mt-2  ms-md-auto" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/login" (click)="logout()" >Logout</a>
         </li>
       </ul>
     </div>
