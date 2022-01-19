@@ -1,0 +1,19 @@
+<div class="customer_grid mb-3 d-flex flex-column  flex-grow-1">
+  <div class="d-flex justify-content-between p-2 card_head">
+    <h5 class="m-0">{{customer.first_name}} {{customer.last_name}}</h5>
+    <div class="form-check p-0 m-0 ms-auto pe-2">
+      <input class="form-check-input" type="checkbox" value="" [checked]="isChecked" (change)="changeCounter($event)">
+    </div>
+    <fa-icon class="edit_icon" [routerLink]="'/customers/'+customer.id" [icon]="faEdit"></fa-icon>
+  </div>
+  <div class="d-flex p-2 card_body">
+    <div class="customer_img">
+      <img class="img-fluid" [src]="'https://picsum.photos/200/200?'+ customer.id" alt="">
+    </div>
+    <div class="px-2">
+      <p>{{customer.address}}</p>
+      <p>{{customer.city}}, {{customer.state}}</p>
+      <a [routerLink]="'/customers/'+customer.id">View Orders</a>
+    </div>
+  </div>
+</div>

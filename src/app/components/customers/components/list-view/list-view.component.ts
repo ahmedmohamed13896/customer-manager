@@ -12,6 +12,7 @@ export class ListViewComponent implements OnInit {
   @Input() paginations : any;
   totalOrder :number= 0;
   @Input() customersIsLoaded;
+  @Input() fullname:string ='';
 
   constructor(private api:ApiService) {
     console.log(this.customersIsLoaded);

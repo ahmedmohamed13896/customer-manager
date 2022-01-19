@@ -21,8 +21,9 @@ export class CustomersComponent implements OnInit {
     {id:3,name :"Map view",icon: faMapMarkedAlt},
     {id:4,name :"New Customer",icon: faPlus}
   ];
-  counter:number = this.tabs.length + 1;
+  customerCounter:number = 0;
   active !:string;
+
 
   // customers Data
   customers: any[]= [];
@@ -52,6 +53,11 @@ export class CustomersComponent implements OnInit {
     ()=>{
      this.customersIsLoaded = true;
     });
+
+    this.api.customerCounter.subscribe((data)=>{
+        this.customerCounter = data;
+    });
+
   }
 
 

@@ -1,11 +1,14 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+
+
+  customerCounter = new BehaviorSubject(0)
 
   constructor(private http:HttpClient) { }
 
@@ -28,6 +31,16 @@ export class ApiService {
 
   getCustomerInfo(id:number){
     return this.http.get('http://localhost:3000/customers/'+id);
+  }
+
+
+
+  setCustomerCounter(){
+    return this.customerCounter
+  }
+
+  getCustomerCounter(){
+    return this.customerCounter.getValue()
   }
 
 

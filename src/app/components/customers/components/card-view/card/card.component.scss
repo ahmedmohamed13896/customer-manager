@@ -1,0 +1,45 @@
+.customer_grid{
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  .card_head{
+    background-color: #007af8;
+    color: #FFF;
+    font-size: 1.1rem;
+    .edit_icon{
+      cursor: pointer;
+    }
+  }
+  .card_body{
+    color: #333;
+    font-size: 15px;
+    a{
+      color: #007af8;
+    }
+    .customer_img{
+      width: 30%;
+      max-width: 80px;
+    }
+    p{
+      margin-bottom: 0;
+    }
+  }
+  .form-check-input{
+    height: 17px;
+    width: 17px;
+    margin: 2px 0;
+    padding: 0;
+  }
+  .form-check-input:checked[type=checkbox]{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%230d6efd' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+    background-color: #FFF;
+  }
+}
+.not_found{
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card_row{
+  min-height: 320px;
+}

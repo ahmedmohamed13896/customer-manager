@@ -5,6 +5,9 @@
     <h2 class="m-0">Customers</h2>
   </div>
 
+  <h1 class="text-center">
+    {{customerCounter}}
+  </h1>
 
   <!-- customers tabs -->
   <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mb-3">
@@ -16,11 +19,11 @@
         <div [ngSwitch]="tab.id">
           <!-- Grid View -->
           <div *ngSwitchCase="1">
-            <app-card-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations"></app-card-view>
+            <app-card-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations" [fullname]="fullname"></app-card-view>
           </div>
           <!-- List View -->
           <div *ngSwitchCase="2">
-            <app-list-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations"></app-list-view>
+            <app-list-view [customersIsLoaded]="customersIsLoaded" [paginations]="paginations" [fullname]="fullname"></app-list-view>
           </div>
           <!-- Map View -->
           <div *ngSwitchCase="3">
@@ -44,6 +47,7 @@
     </li>
 
   </ul>
+
 
   <div [ngbNavOutlet]="nav" class="mt-2 d-flex flex-column justify-content-start"></div>
 

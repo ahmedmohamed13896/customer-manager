@@ -17,7 +17,7 @@
       <th></th>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize;">
+      <tr *ngFor="let customer of customers | slice: (paginations.table.page-1) * paginations.table.pageSize : paginations.table.page * paginations.table.pageSize | filter:fullname;">
         <td>
           <div class="d-flex align-items-center px-2">
             <div class="form-check  m-0 ">

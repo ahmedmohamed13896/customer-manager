@@ -1,4 +1,3 @@
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from './../../../../services/api.service';
 
@@ -10,8 +9,8 @@ import { ApiService } from './../../../../services/api.service';
 export class CardViewComponent implements OnInit {
   customers !: any[];
   @Input() paginations : any;
-  faEdit= faEdit;
   @Input() customersIsLoaded;
+  @Input() fullname:string ='';
 
   constructor(private api:ApiService) {
     if(this.customers?.length > 0){
@@ -24,8 +23,10 @@ export class CardViewComponent implements OnInit {
       this.customers = data;
       this.customersIsLoaded = true;
       console.log(this.customersIsLoaded);
-    })
+    });
   }
+
+
 
 
 }
