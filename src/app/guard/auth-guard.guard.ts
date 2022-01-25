@@ -1,20 +1,20 @@
+import { UsersService } from './../services/users.service';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ApiService } from './../services/api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
-  constructor(private api:ApiService,private router:Router){}
+  constructor(private usersService:UsersService,private router:Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     let status = false;
-    this.api.isLoggedIn.subscribe(logedIn=>{
+    this.usersService.isLoggedIn.subscribe(logedIn=>{
           if(logedIn){
              status = true
           }

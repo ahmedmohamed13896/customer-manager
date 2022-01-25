@@ -1,5 +1,5 @@
+import { CustomersService } from './../../../../services/customers.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from './../../../../services/api.service';
 
 @Component({
   selector: 'app-list-view',
@@ -13,7 +13,7 @@ export class ListViewComponent implements OnInit {
   @Input() customersIsLoaded;
   @Input() fullname:string ='';
 
-  constructor(private api:ApiService) {
+  constructor(private customersService:CustomersService) {
     console.log(this.customersIsLoaded);
     if(this.customers?.length > 0){
       this.customersIsLoaded = true;
@@ -21,12 +21,12 @@ export class ListViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.api.getCustomers().subscribe((data:any)=>{
+    this.customersService.getCustomers().subscribe((data:any)=>{
       this.customers = data;
       this.customersIsLoaded = true;
       console.log(this.customersIsLoaded);
     });
-    this.api.customerCounter.next(0);
+    this.customersService.customerCounter.next(0);
   }
 
 

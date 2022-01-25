@@ -1,5 +1,5 @@
+import { CustomersService } from './../../../../../services/customers.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from './../../../../../services/api.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -13,7 +13,7 @@ export class CardComponent implements OnInit {
   faEdit= faEdit;
   @Input() customer!:any;
 
-  constructor(private api:ApiService) { }
+  constructor(private customersService:CustomersService) { }
 
   ngOnInit(): void {
   }
@@ -21,12 +21,12 @@ export class CardComponent implements OnInit {
   changeCounter(event:Event){
     if((event.target as HTMLInputElement).checked){
       this.customer.isChecked =true;
-      this.counter = this.api.getCustomerCounter();
-      this.api.setCustomerCounter().next(this.counter+1)
+      this.counter = this.customersService.getCustomerCounter();
+      this.customersService.setCustomerCounter().next(this.counter+1)
     }else{
       this.customer.isChecked =false;
-      this.counter = this.api.getCustomerCounter();
-      this.api.setCustomerCounter().next(this.counter-1)
+      this.counter = this.customersService.getCustomerCounter();
+      this.customersService.setCustomerCounter().next(this.counter-1)
     }
   }
 

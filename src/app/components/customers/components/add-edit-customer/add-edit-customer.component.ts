@@ -1,4 +1,4 @@
-import { ApiService } from '../../../../services/api.service';
+import { CustomersService } from './../../../../services/customers.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
 import {  ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class AddEditCustomerComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private apiService:ApiService,
+    private customersService:CustomersService,
     private route :ActivatedRoute,
     private router :Router,
     private toastr: ToastrService,
@@ -45,7 +45,7 @@ export class AddEditCustomerComponent implements OnInit {
       this.route.params.subscribe(param=>{
         this.id= param?.id;
       })
-      this.apiService.getCustomerInfo(this.id).subscribe((info)=>{
+      this.customersService.getCustomerInfo(this.id).subscribe((info)=>{
         this.customerInfo = info;
         this.editForm.patchValue({
           first_name: this.customerInfo.first_name,
@@ -79,7 +79,7 @@ export class AddEditCustomerComponent implements OnInit {
 
   updateCustomer(){
     this.customerInfo = {...this.customerInfo,...this.editForm?.value};
-    this.apiService.updateCustomers(this.id, this.customerInfo).subscribe(res=>{
+    this.customersService.updateCustomers(this.id, this.customerInfo).subscribe(res=>{
       console.log(res);
     },
     error=>{
@@ -94,7 +94,7 @@ export class AddEditCustomerComponent implements OnInit {
 
 
   deleteCustomers(){
-    this.apiService.deleteCustomers(this.id).subscribe((res)=>{
+    this.customersService.deleteCustomers(this.id).subscribe((res)=>{
       console.log(res);
     },
     error=>{
@@ -109,7 +109,7 @@ export class AddEditCustomerComponent implements OnInit {
 
 
   addCustomers(){
-    this.apiService.addCustomers(this.editForm.value).subscribe(res=>{
+    this.customersService.addCustomers(this.editForm.value).subscribe(res=>{
       console.log(res);
     },
     error=>{

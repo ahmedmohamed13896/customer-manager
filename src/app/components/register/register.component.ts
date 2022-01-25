@@ -1,6 +1,6 @@
+import { UsersService } from './../../services/users.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../services/api.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   passwordPattern='(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}';
   namePattern="^([a-zA-Z]{3,})?";
 
-  constructor(private fb:FormBuilder,private api:ApiService,private toastr: ToastrService,private router:Router) { }
+  constructor(private fb:FormBuilder,private usersService:UsersService,private toastr: ToastrService,private router:Router) { }
 
   registerForm = this.fb.group({
     fName: ['',[Validators.pattern(this.namePattern),Validators.required]],
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register(userData:any){
-    this.api.addUser(userData).subscribe((data)=>{
+    this.usersService.addUser(userData).subscribe((data)=>{
       console.log(data);
 
     },

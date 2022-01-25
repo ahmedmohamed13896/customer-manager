@@ -1,4 +1,4 @@
-import { ApiService } from './../../../../services/api.service';
+import { CustomersService } from './../../../../services/customers.service';
 import { faList, faUser } from '@fortawesome/free-solid-svg-icons';
 import {   Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -27,13 +27,13 @@ export class CustomerInformationComponent implements OnInit  {
   customerSub!: Subscription
 
 
-  constructor(private api:ApiService,private route:ActivatedRoute) {}
+  constructor(private CustomersService:CustomersService,private route:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.routeSub = this.route.params.subscribe(param=>{
       this.id= param.id;
     })
-   this.customerSub = this.api.getCustomerInfo(this.id).subscribe((info)=>{
+   this.customerSub = this.CustomersService.getCustomerInfo(this.id).subscribe((info)=>{
       this.customerInfo = info;
       this.totalOrdersPrice = this.getTotalPrice();
     })

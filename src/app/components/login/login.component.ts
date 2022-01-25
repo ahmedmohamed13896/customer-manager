@@ -1,6 +1,6 @@
+import { UsersService } from './../../services/users.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   passwordPattern='(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}';
   userNotFound = false;
-  constructor(private fb:FormBuilder,private api:ApiService, private router:Router ) { }
+  constructor(private fb:FormBuilder,private usersService:UsersService, private router:Router ) { }
 
   loginForm = this.fb.group({
     email: ['',[Validators.email,Validators.required]],
@@ -32,11 +32,11 @@ export class LoginComponent implements OnInit {
 
   login(currentUser:any){
 
-    this.api.getUsers().subscribe((users:any) =>{
+    this.usersService.getUsers().subscribe((users:any) =>{
       users.forEach((user:any) => {
         if(user.email == currentUser.email && user.password == currentUser.password){
           localStorage.setItem('user',user.email);
-          this.api.isLoggedIn.next(true);
+          this.usersService.isLoggedIn.next(true);
           this.router.navigate(['/customers']);
         }
         else{

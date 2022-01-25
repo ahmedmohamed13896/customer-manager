@@ -1,5 +1,5 @@
+import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../services/api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,17 +10,17 @@ export class NavbarComponent implements OnInit {
   isLoggedIn = false;
   brandUrl = "./assets/customers.png";
 
-  constructor(private api:ApiService) { }
+  constructor(private usersService:UsersService) { }
 
   ngOnInit(): void {
-     this.api.isLoggedIn.subscribe(value=>{
+     this.usersService.isLoggedIn.subscribe(value=>{
         this.isLoggedIn = value;
      })
   }
 
   logout(){
     localStorage.removeItem('user');
-    this.api.isLoggedIn.next(false);
+    this.usersService.isLoggedIn.next(false);
   }
 
 }

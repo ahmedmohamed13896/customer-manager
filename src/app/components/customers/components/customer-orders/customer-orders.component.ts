@@ -1,4 +1,4 @@
-import { ApiService } from './../../../../services/api.service';
+import { CustomersService } from './../../../../services/customers.service';
 import { faList, faUser } from '@fortawesome/free-solid-svg-icons';
 import {   Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +22,7 @@ faUser= faUser;
   counter:number = this.tabs.length + 1;
   active !:string;
 
-  constructor(private api:ApiService,private route:ActivatedRoute) {
+  constructor(private customersService:CustomersService,private route:ActivatedRoute) {
 
    }
 
@@ -30,7 +30,7 @@ faUser= faUser;
     this.route.params.subscribe(param=>{
       this.id= param.id;
     })
-    this.api.getCustomerInfo(this.id).subscribe((info)=>{
+    this.customersService.getCustomerInfo(this.id).subscribe((info)=>{
       this.customerInfo = info;
       this.totalOrdersPrice = this.getTotalPrice();
     })

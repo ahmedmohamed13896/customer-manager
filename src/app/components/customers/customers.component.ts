@@ -1,4 +1,5 @@
-import { ApiService } from './../../services/api.service';
+import { CustomersService } from './../../services/customers.service';
+
 import { Component, OnInit } from '@angular/core';
 import { faUser, faThLarge ,faBars, faMapMarkedAlt,faPlus ,faEdit} from '@fortawesome/free-solid-svg-icons';
 
@@ -41,10 +42,10 @@ export class CustomersComponent implements OnInit {
     }
   }
 
-  constructor(private api:ApiService) { }
+  constructor(private customersService:CustomersService) { }
 
   ngOnInit(): void {
-    this.api.getCustomers().subscribe((data:any)=>{
+    this.customersService.getCustomers().subscribe((data:any)=>{
       this.customers = data;
     },
     error =>{
@@ -54,7 +55,7 @@ export class CustomersComponent implements OnInit {
      this.customersIsLoaded = true;
     });
 
-    this.api.customerCounter.subscribe((data)=>{
+    this.customersService.customerCounter.subscribe((data)=>{
         this.customerCounter = data;
     });
 
